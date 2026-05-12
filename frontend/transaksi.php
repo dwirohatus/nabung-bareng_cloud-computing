@@ -29,7 +29,7 @@ if (isset($_POST['setor'])) {
         ]
     ];
     $context = stream_context_create($options);
-    $result  = @file_get_contents('http://backend_server/api/transaksi/deposit.php', false, $context);
+    $result  = @file_get_contents('http://backend/api/transaksi/deposit.php', false, $context);
 
     if ($result === false) {
         $alertMsg  = 'Gagal konek ke backend transaksi.';
@@ -49,7 +49,7 @@ if (isset($_POST['setor'])) {
 /* =========================
    GET GOALS
 ========================= */
-$resGoals = @file_get_contents('http://backend_server/api/goals/get_goals.php?user_id=' . $userId);
+$resGoals = @file_get_contents('http://backend/api/goals/get_goals.php?user_id=' . $userId);
 $goals    = [];
 if ($resGoals !== false) {
     $decoded = json_decode($resGoals, true);
@@ -61,7 +61,7 @@ if ($resGoals !== false) {
 /* =========================
    GET TRANSAKSI
 ========================= */
-$resTx     = @file_get_contents('http://backend_server/api/transaksi/get_transaksi.php?user_id=' . $userId);
+$resTx     = @file_get_contents('http://backend/api/transaksi/get_transaksi.php?user_id=' . $userId);
 $transaksi = [];
 $txError   = false;
 if ($resTx === false) {

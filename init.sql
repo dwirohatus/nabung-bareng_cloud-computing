@@ -94,8 +94,8 @@ CREATE TABLE reminders (
 -- =========================
 INSERT INTO users(name, email, password, balance)
 VALUES
-('Dwi', 'dwi@gmail.com', '123456', 500000),
-('Budi', 'budi@gmail.com', '123456', 300000);
+('Dwi Rohatus', 'dwirohtus02@gmail.com', '$2y$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 500000),
+('Budi', 'budi@gmail.com', '$2y$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7p92ldGxad68LJZdL17lhWy', 300000);
 
 -- =========================
 -- DUMMY DATA GOALS

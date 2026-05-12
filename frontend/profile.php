@@ -12,7 +12,7 @@ $username =
     ?? 'Pengguna';
 
 $resGoals = @file_get_contents(
-    'http://backend_server/api/goals/get_goals.php?user_id=' . $userId
+    'http://backend/api/goals/get_goals.php?user_id=' . $userId
 );
 
 $goals = [];
@@ -29,7 +29,7 @@ if ($resGoals !== false) {
 $totalGoals = count($goals);
 
 $resTx = @file_get_contents(
-    'http://backend_server/api/transaksi/get_transaksi.php?user_id=' . $userId
+    'http://backend/api/transaksi/get_transaksi.php?user_id=' . $userId
 );
 
 $transaksi = [];
@@ -57,10 +57,10 @@ $user = mysqli_fetch_assoc($qUser);
 if(!empty($user['avatar'])){
 
     $foto = str_replace(
-        'http://host.docker.internal:4566',
-        'http://localhost:4566',
-        $user['avatar']
-    );
+    ['http://localstack:4566', 'http://host.docker.internal:4566'],
+    'http://localhost:4566',
+    $user['avatar']
+);
 
 }else{
 

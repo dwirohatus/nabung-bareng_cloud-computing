@@ -16,7 +16,7 @@ $user_id = $_SESSION['user_id'] ?? 0;
 $nama = $_SESSION['name'] ?? ($_SESSION['nama'] ?? 'Sobat Nabung'); // fallback (support both keys)
 
 $resProfil = @file_get_contents(
-    'http://backend_server/api/profile/get_profile.php?user_id=' . $user_id
+    'http://backend/api/profile/get_profile.php?user_id=' . $user_id
 );
 
 if ($resProfil !== false) {
@@ -36,7 +36,7 @@ $totalTabungan = 0;
 $goals         = [];
 
 $resGoals = @file_get_contents(
-    'http://backend_server/api/goals/get_goals.php?user_id=' . $user_id
+    'http://backend/api/goals/get_goals.php?user_id=' . $user_id
 );
 
 if ($resGoals !== false) {
@@ -57,7 +57,7 @@ if ($resGoals !== false) {
 $transaksi = [];
 
 $resTx = @file_get_contents(
-    'http://backend_server/api/transaksi/get_transaksi.php?user_id=' . $user_id
+    'http://backend/api/transaksi/get_transaksi.php?user_id=' . $user_id
 );
 
 if ($resTx !== false) {

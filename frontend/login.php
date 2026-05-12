@@ -45,7 +45,7 @@ if (isset($_POST['login'])) {
             if ($response && $response['status'] === true) {
                 $_SESSION['user']    = $response['data'];
                 $_SESSION['user_id'] = $response['data']['id'];
-                $_SESSION['name']    = $response['data']['name'] ?? 'Pengguna';
+                $_SESSION['nama']    = $response['data']['name'] ?? $response['data']['nama'] ?? 'Pengguna';
                 header('Location: index.php');
                 exit;
             } else {

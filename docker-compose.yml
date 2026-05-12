@@ -6,6 +6,8 @@ services:
 
     container_name: frontend_server
 
+    restart: always
+
     ports:
       - "8080:80"
 
@@ -30,6 +32,8 @@ services:
       dockerfile: Dockerfile
 
     container_name: backend_server
+
+    restart: always
 
     ports:
       - "8000:80"
@@ -72,6 +76,8 @@ services:
     image: localstack/localstack:3
 
     container_name: localstack
+
+    restart: always
 
     ports:
       - "4566:4566"
