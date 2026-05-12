@@ -1,0 +1,13 @@
+.goal-card {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.goal-title {
+  font-weight: bold;
+}
+
+.goal-member {
+  font-size: 14px;
+  color: gray;
+}

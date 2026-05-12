@@ -1,0 +1,30 @@
+{
+  "info": {
+    "name": "Nabung Bareng API",
+    "_postman_id": "12345678",
+    "description": "Collection API Nabung Bareng",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+
+  "item": [
+    {
+      "name": "Login",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8000/api/auth/login.php"
+        }
+      }
+    },
+
+    {
+      "name": "Register",
+      "request": {
+        "method": "POST",
+        "url": {
+          "raw": "http://localhost:8000/api/auth/register.php"
+        }
+      }
+    }
+  ]
+}

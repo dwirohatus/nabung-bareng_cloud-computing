@@ -1,0 +1,30 @@
+body {
+  background-color: #f5f7fb;
+  font-family: Arial, sans-serif;
+}
+
+.navbar-brand {
+  font-size: 24px;
+}
+
+.card {
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.progress {
+  height: 20px;
+  border-radius: 20px;
+}
+
+.progress-bar {
+  font-weight: bold;
+}
+
+.btn {
+  border-radius: 12px;
+}

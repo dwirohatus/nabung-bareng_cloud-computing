@@ -1,0 +1,98 @@
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: frontend_server
+
+    ports:
+      - "8080:80"
+
+    volumes:
+      - ./frontend:/var/www/html
+      - ./backend:/var/www/html/backend
+
+    depends_on:
+      - backend
+      - mysql
+      - localstack
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    networks:
+      - nabung_network
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: backend_server
+
+    ports:
+      - "8000:80"
+
+    volumes:
+      - ./backend:/var/www/html
+
+    depends_on:
+      - mysql
+      - localstack
+
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+    networks:
+      - nabung_network
+
+  mysql:
+    image: mysql:8.0
+
+    container_name: mysql_db
+
+    restart: always
+
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: nabung_bareng
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+
+    networks:
+      - nabung_network
+
+  localstack:
+    image: localstack/localstack:3
+
+    container_name: localstack
+
+    ports:
+      - "4566:4566"
+
+    environment:
+      - SERVICES=s3,sns
+      - DEBUG=1
+      - AWS_DEFAULT_REGION=ap-southeast-1
+      - AWS_ACCESS_KEY_ID=test
+      - AWS_SECRET_ACCESS_KEY=test
+
+    volumes:
+      - ./localstack:/var/lib/localstack
+      - /var/run/docker.sock:/var/run/docker.sock
+
+    networks:
+      - nabung_network
+
+volumes:
+  mysql_data:
+
+networks:
+  nabung_network:
+    driver: bridge

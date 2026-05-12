@@ -1,0 +1,10 @@
+.dashboard-card {
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.total-balance {
+  font-size: 32px;
+  font-weight: bold;
+  color: #198754;
+}

@@ -1,0 +1,7 @@
+-- BACKUP SEBELUM UPDATE SISTEM
+
+CREATE TABLE users_backup_v1 AS
+SELECT * FROM users;
+
+CREATE TABLE goals_backup_v1 AS
+SELECT * FROM goals;

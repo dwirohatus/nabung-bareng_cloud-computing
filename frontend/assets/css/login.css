@@ -1,0 +1,9 @@
+.login-card {
+  width: 400px;
+  border-radius: 20px;
+}
+
+.login-title {
+  color: #198754;
+  font-weight: bold;
+}

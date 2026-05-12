@@ -1,0 +1,6 @@
+{
+  "TopicArn": "arn:aws:sns:us-east-1:000000000000:reminder-topic",
+  "TopicName": "reminder-topic",
+  "Description": "Topic untuk reminder tabungan Nabung Bareng",
+  "NotificationTypes": ["deposit_reminder", "weekly_reminder", "goal_progress"]
+}
