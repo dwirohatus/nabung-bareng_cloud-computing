@@ -113,9 +113,6 @@ body {
 }
 a { text-decoration: none; color: inherit; }
 
-/* =====================
-   SIDEBAR
-===================== */
 .sidebar {
     width: var(--sidebar-w);
     min-height: 100vh;
@@ -216,9 +213,6 @@ a { text-decoration: none; color: inherit; }
 .user-name { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,.85); }
 .user-role { font-size: 10.5px; color: rgba(255,255,255,.35); margin-top: 1px; }
 
-/* =====================
-   MAIN
-===================== */
 .main {
     margin-left: var(--sidebar-w);
     flex: 1; display: flex; flex-direction: column; min-height: 100vh;
@@ -252,7 +246,6 @@ a { text-decoration: none; color: inherit; }
 
 .page { padding: 24px 28px 40px; flex: 1; }
 
-/* ALERT */
 .alert {
     display: flex; align-items: center; gap: 9px;
     padding: 12px 16px; border-radius: var(--r-sm);
@@ -263,7 +256,6 @@ a { text-decoration: none; color: inherit; }
 .alert-danger  { background: var(--danger-bg);  color: var(--danger);       border: 1px solid var(--danger-bd); }
 .alert i { font-size: 17px; flex-shrink: 0; }
 
-/* SUMMARY BAR */
 .summary-bar {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -293,7 +285,6 @@ a { text-decoration: none; color: inherit; }
 .sum-label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
 .sum-val   { font-size: 17px; font-weight: 800; color: var(--ink); letter-spacing: -.4px; margin-top: 2px; }
 
-/* GOALS GRID */
 .goals-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -448,7 +439,6 @@ a { text-decoration: none; color: inherit; }
 </head>
 <body>
 
-<!-- SIDEBAR -->
 <aside class="sidebar">
     <div class="sidebar-inner">
 
@@ -507,7 +497,6 @@ a { text-decoration: none; color: inherit; }
     </div>
 </aside>
 
-<!-- MAIN -->
 <main class="main">
 
     <div class="topbar">
@@ -532,7 +521,6 @@ a { text-decoration: none; color: inherit; }
 
         <?php if (!empty($goals)): ?>
 
-        <!-- SUMMARY BAR -->
         <div class="summary-bar">
             <div class="sum-card">
                 <div class="sum-icon green"><i class="ti ti-target"></i></div>
@@ -557,7 +545,6 @@ a { text-decoration: none; color: inherit; }
             </div>
         </div>
 
-        <!-- GOALS GRID -->
         <div class="goals-grid">
             <?php foreach ($goals as $i => $goal):
                 $current = (int)($goal['current_amount'] ?? 0);
@@ -611,7 +598,6 @@ a { text-decoration: none; color: inherit; }
 
         <?php else: ?>
 
-        <!-- EMPTY STATE -->
         <div class="empty-state">
             <div class="empty-icon-wrap">
                 <i class="ti ti-target-off"></i>

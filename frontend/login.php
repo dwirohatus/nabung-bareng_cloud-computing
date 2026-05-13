@@ -102,9 +102,6 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* =====================
-   LEFT PANEL
-===================== */
 .left-panel {
     width: 440px;
     flex-shrink: 0;
@@ -117,7 +114,6 @@ body {
     padding: 40px 44px;
 }
 
-/* Decorative blobs */
 .left-panel::before {
     content: '';
     position: absolute;
@@ -138,7 +134,6 @@ body {
     pointer-events: none;
 }
 
-/* dot grid pattern */
 .left-panel .dots {
     position: absolute;
     inset: 0;
@@ -193,7 +188,6 @@ body {
     max-width: 300px;
 }
 
-/* Feature pills */
 .features {
     display: flex; flex-direction: column; gap: 10px;
     margin-top: 40px;
@@ -222,7 +216,6 @@ body {
     line-height: 1.3;
 }
 
-/* Testimonial / quote */
 .quote-block {
     background: rgba(255,255,255,.06);
     border: 1px solid rgba(255,255,255,.08);
@@ -252,9 +245,6 @@ body {
     font-size: 12px; font-weight: 600; color: rgba(255,255,255,.6);
 }
 
-/* =====================
-   RIGHT PANEL
-===================== */
 .right-panel {
     flex: 1;
     display: flex;
@@ -288,7 +278,6 @@ body {
 
 .form-sub a:hover { text-decoration: underline; }
 
-/* Alert */
 .alert {
     display: flex; align-items: flex-start; gap: 9px;
     padding: 11px 14px;
@@ -306,7 +295,6 @@ body {
 
 .alert i { font-size: 16px; flex-shrink: 0; margin-top: 1px; }
 
-/* Fields */
 .field { margin-bottom: 16px; }
 
 .field label {
@@ -353,7 +341,6 @@ body {
 .pw-toggle:hover { color: var(--green); }
 .pw-toggle i { font-size: 17px; }
 
-/* Remember + forgot */
 .form-extras {
     display: flex; align-items: center; justify-content: space-between;
     margin-bottom: 20px;
@@ -377,7 +364,6 @@ body {
 
 .forgot:hover { text-decoration: underline; }
 
-/* Submit */
 .btn-submit {
     width: 100%;
     padding: 13px;
@@ -414,7 +400,6 @@ body {
     height: 1px; background: var(--border);
 }
 
-/* Register CTA */
 .register-cta {
     text-align: center;
     font-size: 13px; color: var(--muted);
@@ -427,7 +412,6 @@ body {
 
 .register-cta a:hover { text-decoration: underline; }
 
-/* DEBUG */
 .debug-box {
     background: #0d1117;
     color: #58d68d;
@@ -446,7 +430,6 @@ body {
     font-size: 12px;
 }
 
-/* Animations */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(14px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -459,7 +442,6 @@ body {
 </head>
 <body>
 
-<!-- LEFT PANEL -->
 <div class="left-panel">
     <div class="dots"></div>
 
@@ -511,7 +493,6 @@ body {
     </div>
 </div>
 
-<!-- RIGHT PANEL -->
 <div class="right-panel">
     <div class="form-wrap">
 

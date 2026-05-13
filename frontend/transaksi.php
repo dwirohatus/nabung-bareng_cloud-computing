@@ -2,16 +2,11 @@
 session_start();
 
 if (!isset($_SESSION['user_id'])) {
-    // sementara testing
     $_SESSION['user_id'] = 1;
 }
-
 $userId = $_SESSION['user_id'];
 $nama   = $_SESSION['name'] ?? ($_SESSION['nama'] ?? 'Pengguna');
 
-/* =========================
-   SETOR TABUNGAN
-========================= */
 $alertMsg  = '';
 $alertType = '';
 
@@ -46,9 +41,6 @@ if (isset($_POST['setor'])) {
     }
 }
 
-/* =========================
-   GET GOALS
-========================= */
 $resGoals = @file_get_contents('http://backend/api/goals/get_goals.php?user_id=' . $userId);
 $goals    = [];
 if ($resGoals !== false) {
@@ -58,9 +50,6 @@ if ($resGoals !== false) {
     }
 }
 
-/* =========================
-   GET TRANSAKSI
-========================= */
 $resTx     = @file_get_contents('http://backend/api/transaksi/get_transaksi.php?user_id=' . $userId);
 $transaksi = [];
 $txError   = false;
@@ -129,9 +118,6 @@ body {
 }
 a { text-decoration: none; color: inherit; }
 
-/* =====================
-   SIDEBAR
-===================== */
 .sidebar {
     width: var(--sidebar-w); min-height: 100vh;
     background: var(--forest);
@@ -214,9 +200,6 @@ a { text-decoration: none; color: inherit; }
 .user-name { font-size: 12.5px; font-weight: 600; color: rgba(255,255,255,.85); }
 .user-role { font-size: 10.5px; color: rgba(255,255,255,.35); margin-top: 1px; }
 
-/* =====================
-   MAIN
-===================== */
 .main {
     margin-left: var(--sidebar-w);
     flex: 1; display: flex; flex-direction: column; min-height: 100vh;
@@ -235,7 +218,6 @@ a { text-decoration: none; color: inherit; }
 
 .page { padding: 24px 28px 40px; flex: 1; }
 
-/* ALERT */
 .alert {
     display: flex; align-items: center; gap: 9px;
     padding: 12px 16px; border-radius: var(--r-sm);
@@ -245,7 +227,6 @@ a { text-decoration: none; color: inherit; }
 .alert-danger  { background: var(--danger-bg);  color: var(--danger);     border: 1px solid var(--danger-bd); }
 .alert i { font-size: 17px; flex-shrink: 0; }
 
-/* SUMMARY BAR */
 .summary-bar {
     display: grid; grid-template-columns: repeat(3, 1fr);
     gap: 12px; margin-bottom: 22px;
@@ -267,13 +248,11 @@ a { text-decoration: none; color: inherit; }
 .sum-label { font-size: 11px; color: var(--muted); font-weight: 600; text-transform: uppercase; letter-spacing: .6px; }
 .sum-val   { font-size: 17px; font-weight: 800; color: var(--ink); letter-spacing: -.4px; margin-top: 2px; }
 
-/* LAYOUT 2-COL */
 .layout-2col {
     display: grid; grid-template-columns: 360px 1fr;
     gap: 18px; align-items: start;
 }
 
-/* SETOR CARD */
 .card {
     background: var(--surface); border: 1px solid var(--border);
     border-radius: var(--r-xl); overflow: hidden;

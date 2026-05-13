@@ -14,7 +14,6 @@ $userId  = (int) ($_POST['user_id'] ?? 0);
 $tmpPath = $_FILES['avatar']['tmp_name'];
 $name    = $_FILES['avatar']['name'];
 
-// 'backend' = nama service di docker-compose.yml = hostname di jaringan nabung_network
 $ch = curl_init('http://backend/api/profile/upload_avatar.php');
 
 $postData = [

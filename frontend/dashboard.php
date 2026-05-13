@@ -9,10 +9,6 @@ if (!isset($_SESSION['user_id'])) {
 
 $user_id = $_SESSION['user_id'] ?? 0;
 
-/* =========================
-   AMBIL DATA PROFIL (sinkron nama)
-========================= */
-
 $nama = $_SESSION['name'] ?? ($_SESSION['nama'] ?? 'Sobat Nabung'); // fallback (support both keys)
 
 $resProfil = @file_get_contents(
@@ -26,10 +22,6 @@ if ($resProfil !== false) {
         $_SESSION['name'] = $nama; // perbarui session agar tetap sinkron
     }
 }
-
-/* =========================
-   AMBIL DATA GOALS
-========================= */
 
 $totalGoals    = 0;
 $totalTabungan = 0;
@@ -49,10 +41,6 @@ if ($resGoals !== false) {
         }
     }
 }
-
-/* =========================
-   AMBIL TRANSAKSI
-========================= */
 
 $transaksi = [];
 
@@ -81,9 +69,7 @@ $totalTx = count($transaksi);
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@3.19.0/dist/tabler-icons.min.css">
 
 <style>
-/* =====================
-   RESET & BASE
-===================== */
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
@@ -134,9 +120,6 @@ body {
 
 a { text-decoration: none; color: inherit; }
 
-/* =====================
-   SIDEBAR
-===================== */
 .sidebar {
     width: var(--sidebar-w);
     min-height: 100vh;
@@ -150,7 +133,6 @@ a { text-decoration: none; color: inherit; }
     overflow: hidden;
 }
 
-/* subtle texture overlay */
 .sidebar::before {
     content: '';
     position: absolute;
@@ -280,10 +262,6 @@ a { text-decoration: none; color: inherit; }
     font-size: 10.5px; color: rgba(255,255,255,.35);
     margin-top: 1px;
 }
-
-/* =====================
-   MAIN AREA
-===================== */
 .main {
     margin-left: var(--sidebar-w);
     flex: 1;
@@ -292,7 +270,6 @@ a { text-decoration: none; color: inherit; }
     min-height: 100vh;
 }
 
-/* TOPBAR */
 .topbar {
     height: var(--topbar-h);
     background: var(--c-surface);
@@ -340,15 +317,11 @@ a { text-decoration: none; color: inherit; }
 .topbar-btn:hover { background: var(--c-bg); color: var(--c-green); }
 .topbar-btn i { font-size: 17px; }
 
-/* PAGE */
 .page {
     padding: 24px 28px 40px;
     flex: 1;
 }
 
-/* =====================
-   STAT CARDS
-===================== */
 .stats {
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1fr;
@@ -433,9 +406,6 @@ a { text-decoration: none; color: inherit; }
 .stat-trend.up   { background: var(--c-green-lt); color: var(--c-green-text); }
 .stat-trend.zero { background: var(--c-bg); color: var(--c-muted); }
 
-/* =====================
-   LAYOUT 2-COL
-===================== */
 .row-2 {
     display: grid;
     grid-template-columns: 1.6fr 1fr;
@@ -443,9 +413,6 @@ a { text-decoration: none; color: inherit; }
     margin-bottom: 16px;
 }
 
-/* =====================
-   SECTION CARD
-===================== */
 .section {
     background: var(--c-surface);
     border: 1px solid var(--c-border);
@@ -475,7 +442,6 @@ a { text-decoration: none; color: inherit; }
 .see-all:hover { gap: 6px; }
 .see-all i { font-size: 13px; }
 
-/* GOALS */
 .goal-row {
     display: flex; align-items: center; gap: 14px;
     padding: 14px 20px;
@@ -537,7 +503,6 @@ a { text-decoration: none; color: inherit; }
     margin-top: 2px;
 }
 
-/* add goal */
 .add-goal-row {
     display: flex; align-items: center; justify-content: center; gap: 8px;
     padding: 14px 20px;
@@ -551,9 +516,6 @@ a { text-decoration: none; color: inherit; }
 .add-goal-row:hover { color: var(--c-green); }
 .add-goal-row i { font-size: 15px; }
 
-/* =====================
-   SUMMARY WIDGET (right col)
-===================== */
 .summary-body { padding: 16px 18px; }
 
 .sum-item {
@@ -599,9 +561,6 @@ a { text-decoration: none; color: inherit; }
 .mini-bar.hi { background: var(--c-green); }
 .mini-bar:hover { background: var(--c-green-text); }
 
-/* =====================
-   TRANSAKSI TABLE
-===================== */
 .section-full { margin-bottom: 0; }
 
 .tx-empty {
@@ -650,9 +609,6 @@ a { text-decoration: none; color: inherit; }
     letter-spacing: -.3px;
 }
 
-/* =====================
-   EMPTY GENERIC
-===================== */
 .empty {
     padding: 36px 20px;
     text-align: center;
@@ -662,9 +618,6 @@ a { text-decoration: none; color: inherit; }
 }
 .empty i { font-size: 30px; opacity: .35; }
 
-/* =====================
-   ANIMATIONS
-===================== */
 @keyframes fadeUp {
     from { opacity: 0; transform: translateY(12px); }
     to   { opacity: 1; transform: translateY(0); }
@@ -687,9 +640,6 @@ a { text-decoration: none; color: inherit; }
 </head>
 <body>
 
-<!-- ========================
-     SIDEBAR
-======================== -->
 <aside class="sidebar">
     <div class="sidebar-inner">
 
@@ -759,9 +709,6 @@ a { text-decoration: none; color: inherit; }
     </div>
 </aside>
 
-<!-- ========================
-     MAIN
-======================== -->
 <div class="main">
 
     <!-- TOPBAR -->

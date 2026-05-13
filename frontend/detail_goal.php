@@ -4,7 +4,6 @@ include 'backend/config/database.php';
 
 $id = (int)($_GET['id'] ?? 0);
 
-// Tambah anggota - nama bebas, tidak perlu user terdaftar
 if(isset($_POST['add_member'])){
     $member_name = mysqli_real_escape_string($conn, trim($_POST['member_name'] ?? ''));
     if($member_name !== ''){
@@ -16,7 +15,6 @@ if(isset($_POST['add_member'])){
     exit;
 }
 
-// Hapus anggota
 if(isset($_POST['delete_member'])){
     $member_id = (int)$_POST['member_id'];
     mysqli_query($conn,
@@ -26,7 +24,6 @@ if(isset($_POST['delete_member'])){
     exit;
 }
 
-// Data goal
 $query = mysqli_query($conn, "SELECT * FROM goals WHERE id='$id' LIMIT 1");
 $goal  = mysqli_fetch_assoc($query);
 if(!$goal) die("Goals tidak ditemukan");
@@ -35,7 +32,6 @@ $target   = $goal['target_amount'];
 $current  = $goal['current_amount'];
 $progress = ($target > 0) ? min(100, round(($current / $target) * 100)) : 0;
 
-// Daftar anggota
 $member_query = mysqli_query($conn,
     "SELECT id, member_name FROM goal_members WHERE goal_id='$id' ORDER BY id ASC"
 );
@@ -187,8 +183,7 @@ body { background:#f4f8f5; font-family:'Poppins',sans-serif; }
             <?php endwhile; ?>
 
         </ul>
-
-        <!-- Input nama bebas -->
+        
         <div class="add-row">
             <input
                 type="text"

@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-/* =========================
-   REDIRECT JIKA SUDAH LOGIN
-========================= */
-
 if (isset($_SESSION['user_id'])) {
     header('Location: index.php');
     exit;
@@ -13,10 +9,6 @@ if (isset($_SESSION['user_id'])) {
 $error   = '';
 $success = '';
 
-/* =========================
-   HANDLE REGISTER
-========================= */
-
 if (isset($_POST['register'])) {
 
     $nama      = trim($_POST['nama'] ?? '');
@@ -24,7 +16,6 @@ if (isset($_POST['register'])) {
     $password  = $_POST['password'] ?? '';
     $konfirmasi = $_POST['konfirmasi'] ?? '';
 
-    /* VALIDASI */
 
     if (
         empty($nama) ||
@@ -43,8 +34,6 @@ if (isset($_POST['register'])) {
         $error = '⚠️ Konfirmasi password tidak cocok.';
 
     } else {
-
-        /* DATA KE BACKEND */
 
         $data = [
             'name'     => $nama,
@@ -68,15 +57,12 @@ if (isset($_POST['register'])) {
             $context
         );
 
-        /* ERROR KONEK */
-
         if ($result === false) {
 
             $error = '❌ Gagal konek ke backend.';
 
         } else {
 
-            /* DECODE JSON */
 
             $response = json_decode($result, true);
 
